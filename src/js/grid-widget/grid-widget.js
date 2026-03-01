@@ -12,6 +12,10 @@ export class GridWidgit {
     this.cells[this.activeCell].classList.add("active");
   }
 
+  getActiveCell() {
+    return this.activeCell;
+  }
+
   _getRandomCellIndex(currentCellIndex) {
     const availableIndexes = Array.from(
       { length: this.cells.length },
@@ -21,4 +25,27 @@ export class GridWidgit {
       availableIndexes[Math.floor(Math.random() * availableIndexes.length)];
     return randomIndex;
   }
+}
+
+export function createGrid(rows, cols, cellClick) {
+  const table = document.createElement('table');
+  table.className = 'grid';
+  let n = 0;
+  for (let i = 1; i <= rows; i++) {
+    const tr = document.createElement('tr');
+    for (let j = 1; j <= cols; j++) {
+      const td = document.createElement('td');
+      td.className = 'cell';
+      tr.appendChild(td);
+      const cellNumber = n;
+      n++;
+      td.addEventListener('click', () => {
+        if (cellClick) {
+          cellClick(cellNumber);
+        }
+      });
+    }
+    table.appendChild(tr);
+  }
+  document.body.appendChild(table);
 }
