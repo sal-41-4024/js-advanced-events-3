@@ -11,8 +11,8 @@ export class GameWidgit {
   }
 
   checkClick(cellClick, grid) {
-    if (cellClick === grid.activeCell) {
-      grid.changeActiveCell();
+    if (cellClick === grid.activeCell && cellClick !== grid.getClickedCell()) {
+      grid.changeToClicked(cellClick);
       this.addScore();
     } else {
       this.addMiss();

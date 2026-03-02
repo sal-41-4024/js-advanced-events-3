@@ -4,12 +4,23 @@ export class GridWidgit {
     this.cells = this._element.querySelectorAll(".cell");
     this.activeCell = Math.floor(Math.random() * this.cells.length);
     this.cells[this.activeCell].classList.add("active");
+    this._clickedCell = null;
   }
 
   changeActiveCell() {
     this.cells[this.activeCell].classList.remove("active");
+    this.cells[this.activeCell].classList.remove("clicked");
     this.activeCell = this._getRandomCellIndex(this.activeCell);
     this.cells[this.activeCell].classList.add("active");
+  }
+
+  changeToClicked(cellClick) {
+    this.cells[cellClick].classList.add("clicked");
+    this._clickedCell = cellClick;
+  }
+
+  getClickedCell() {
+    return this._clickedCell;
   }
 
   getActiveCell() {

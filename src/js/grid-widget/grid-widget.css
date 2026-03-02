@@ -17,9 +17,13 @@ body {
   align-items: center;
   width: 100px;
   height: 100px;
+  cursor: url('../../img/cursor.cur'), pointer;
 }
 .cell.active {
   background-image: url('../../img/img.png');
   background-size: cover;
   background-position: center;
+}
+.cell.clicked {
+  background-image: none;
 }

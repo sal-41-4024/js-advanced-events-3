@@ -1,5 +1,7 @@
 // TODO: write code here
 
+//count miss if not clicked
+
 import { GridWidgit, renderGrid } from "./grid-widget/grid-widget";
 import { GameWidgit, renderGame } from "./game-widget/game-widget";
 
@@ -17,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const newInterval = setInterval(() => {
     if (game.getGameEnded()) return;
+    if (grid.getClickedCell() !== grid.getActiveCell()) {
+      game.addMiss();
+    }
     grid.changeActiveCell();
   }, 1000);
 
