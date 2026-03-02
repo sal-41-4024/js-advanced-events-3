@@ -1,7 +1,5 @@
 // TODO: write code here
 
-//count miss if not clicked
-
 import { GridWidgit, renderGrid } from "./grid-widget/grid-widget";
 import { GameWidgit, renderGame } from "./game-widget/game-widget";
 
