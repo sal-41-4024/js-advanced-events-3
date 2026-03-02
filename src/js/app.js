@@ -1,16 +1,22 @@
 // TODO: write code here
 
-import { GridWidgit, createGrid} from "./grid-widget/grid-widget";
-import {GameWidgit, createGame} from "./game-widget/game-widget";
+import { GridWidgit, renderGrid } from "./grid-widget/grid-widget";
+import { GameWidgit, renderGame } from "./game-widget/game-widget";
 
 document.addEventListener("DOMContentLoaded", () => {
-  createGame();
-  const game = new GameWidgit(document.querySelector(".game"));
-  createGrid(4, 4, (cellClick) => {
-    game.checkClick(cellClick, grid.getActiveCell());
+  const gridElement = renderGrid(4, 4, (cellClick) => {
+    if (game.getGameEnded()) return;
+    game.checkClick(cellClick, grid);
   });
+
+  renderGame(gridElement);
+
   const grid = new GridWidgit(document.querySelector(".grid"));
+
+  const game = new GameWidgit(document.querySelector(".game"));
+
   const newInterval = setInterval(() => {
+    if (game.getGameEnded()) return;
     grid.changeActiveCell();
   }, 1000);
 

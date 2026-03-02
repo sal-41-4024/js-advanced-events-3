@@ -1,0 +1,18 @@
+.game {
+    display: flex;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+  }
+  
+  .stat {
+    margin-left: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: 20px;
+  }
+  
+  .score, .misses, .game-over {
+    margin: 10px 0;
+  }

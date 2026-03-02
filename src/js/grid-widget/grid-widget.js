@@ -27,19 +27,19 @@ export class GridWidgit {
   }
 }
 
-export function createGrid(rows, cols, cellClick) {
-  const table = document.createElement('table');
-  table.className = 'grid';
+export function renderGrid(rows, cols, cellClick) {
+  const table = document.createElement("table");
+  table.className = "grid";
   let n = 0;
   for (let i = 1; i <= rows; i++) {
-    const tr = document.createElement('tr');
+    const tr = document.createElement("tr");
     for (let j = 1; j <= cols; j++) {
-      const td = document.createElement('td');
-      td.className = 'cell';
+      const td = document.createElement("td");
+      td.className = "cell";
       tr.appendChild(td);
       const cellNumber = n;
       n++;
-      td.addEventListener('click', () => {
+      td.addEventListener("click", () => {
         if (cellClick) {
           cellClick(cellNumber);
         }
@@ -47,5 +47,5 @@ export function createGrid(rows, cols, cellClick) {
     }
     table.appendChild(tr);
   }
-  document.body.appendChild(table);
+  return table;
 }
